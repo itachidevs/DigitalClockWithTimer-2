@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Timer</title>
+</head>
+<body>
+
+<label for="timeInput">Set timer:</label>
+<input type="time" id="timeInput">
+<button id="startTimer">Start Timer</button>
+<p id="timerDisplay"></p>
+
+<script>
+    const timeInput = document.getElementById('timeInput');
+    const startTimerButton = document.getElementById('startTimer');
+    const timerDisplay = document.getElementById('timerDisplay');
+    let intervalId;
+
+    startTimerButton.addEventListener('click', function() {
+        const selectedTime = timeInput.value;
+        const [hours, minutes] = selectedTime.split(':');
+        const targetTime = new Date();
+        targetTime.setHours(parseInt(hours));
+        targetTime.setMinutes(parseInt(minutes));
+        targetTime.setSeconds(0);
+
+        clearInterval(intervalId);
+        intervalId = setInterval(function() {
+            const now = new Date().getTime();
+            const distance = targetTime.getTime() - now;
+
+            const hoursRemaining = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutesRemaining = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const secondsRemaining = Math.floor((distance % (1000 * 60)) / 1000);
+
+            timerDisplay.textContent = `${hoursRemaining.toString().padStart(2, '0')}:${minutesRemaining.toString().padStart(2, '0')}:${secondsRemaining.toString().padStart(2, '0')}`;
+
+            if (distance < 0) {
+                clearInterval(intervalId);
+                timerDisplay.textContent = "Time's up!";
+            }
+        }, 1000);
+    });
+</script>
+
+</body>
+</html>

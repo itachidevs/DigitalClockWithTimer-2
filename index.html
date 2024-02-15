@@ -1,0 +1,64 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles/style.css">
+</head>
+
+<body>
+    <h1 class="heading">Focus</h1>
+    <div class="container">
+        <div class="clock">
+            <div class="container1">
+                <h1 class="twelve">12 </h1>
+            </div>
+            <div class="container2">
+
+                <div class="three">
+                    <h2>9</h2>
+                </div>
+                <div class="clockface">
+                    <div class="hour-hand hand" id="hourHand"></div>
+                    <div class="minute-hand hand" id="minuteHand"></div>
+                    <div class="second-hand hand" id="secondHand"></div>
+
+                </div>
+                <div class="nine">
+                    <h2>3</h2>
+                </div>
+            </div>
+            <div class="container3">
+                <div class="six">
+                    <h1>6</h1>
+                </div>
+
+            </div>
+
+        </div>
+        <div>
+
+        </div>
+        <div class="button-container">
+            <input type="time" class="btn" id="timer" step="2" value="00:00:00">
+            <button class="btn" id="startBtn">Start</button>
+            <button class="btn" id="resetBtn">Reset</button>
+          <span class="result warning" id="result"></span>
+
+            <div class="timer" >
+                <span class="hours" id="hours">00</span>
+                <span>:</span>
+                <span class="minutes" id="minutes">00</span>
+                <span>:</span>
+                <span class="seconds" id="seconds">00</span>
+            </div>
+        </div>
+    </div>
+    <div class="quote-container">
+        <h1 class="quote" id="quote"><q>Never Stop</q></h1>
+
+    <script src="javascript/script.js"></script>
+</body>
+
+</html>
